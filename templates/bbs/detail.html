@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% block content %}
+<!doctype html>
+<html> 
+    <head>
+        <style>
+            body{
+                background-image:url("https://png.pngtree.com/thumb_back/fh260/background/20190221/ourmid/pngtree-gesture-bank-card-data-information-image_19030.jpg");
+                background-size: 100%;
+            }
+        </style>
+    </head>
+    <h2 style="padding-bottom:25px; font-size:2.0em">TRANSFER</h2>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            text-align:center;
+            font-style: italic;
+
+        }
+    </style>
+    <form action="detail" method="post">
+        {% csrf_token %}
+    
+        <p>USERNAME&nbsp;&nbsp;<input type="text" name="sender" placeholder="Sender"></p><br>
+        <style>
+            body{
+                font-size: 2.0em;
+                color: rgb(226, 70, 174);
+            }
+        </style>
+        <p>TRANSFER TO&nbsp;&nbsp;<input type="text" name="receiver" placeholder="Receiver"></p><br>
+        <p>AMOUNT&nbsp;&nbsp;<input type="number" name="transfer" placeholder="How much?"></p><br>
+        <p><input type="submit" placeholder="TRANSFER" class="btn1 btn-dark">&nbsp;
+            <style>
+                body {
+                    margin: 0;
+                    padding: 0;
+                    text-align:center;
+                    font-style: italic;
+                }
+                .btn {
+                    cursor: pointer;
+                    border: 3px solid #64d364ef;
+                    background-color: transparent;
+                    height: 50px;
+                    width: 280px;
+                    color: #b63777fb;
+                    font-size: 0.7em;
+                    box-shadow: 0 6px 6px rgba(163, 102, 11, 0.932);
+                    position: absolute;
+                    right: 570px;
+                    bottom: 150px;
+                }
+            </style>
+            <style>
+                body {
+                    margin: 0;
+                    padding: 0;
+                    text-align:center;
+                    font-style: italic;
+                }
+                .btn1 {
+                    cursor: pointer;
+                    border: 3px solid #64d364ef;
+                    background-color: transparent;
+                    height: 50px;
+                    width: 200px;
+                    color: #b32b6ffb;
+                    font-size: 0.9em;
+                    box-shadow: 0 6px 6px rgba(163, 102, 11, 0.932);
+                    position: absolute;
+                    right: 650px;
+                    bottom: 100px;
+                }
+            </style>
+
+            <a class ="btn btn-dark" href ="{% url 'bbs:index' %}">
+            BACK TO HOMEPAGE</a>
+            
+            
+    </form>
+
+    <div>
+        {% for message in messages %}
+        <p>{{message}}</p>
+        {% endfor %}
+    </div>    
+</html>
+
+
+{% endblock %}
